@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        maven: 'localMaven'
+        maven 'localMaven'
     }
 
     stages {
@@ -28,7 +28,7 @@ pipeline {
         stage('Deploy to production'){
            steps {
                timeout(time:5, unit: 'DYAS'){
-                   input_message: 'Approve production deployment?'
+                   input message: 'Approve production deployment?'
                }
 
                build job: 'deploy-to-prod'
